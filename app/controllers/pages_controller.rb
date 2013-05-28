@@ -4,7 +4,10 @@ class PagesController < ApplicationController
   end
 
 	def random
-		client = Tumblr::Client.new
+		client = Tumblr::Client.new(:consumer_key => ENV['CONSUMER_KEY'], 
+																:consumer_secret => ENV['CONSUMER_SECRET'], 
+																:oauth_token => ENV['ACCESS_TOKEN'], 
+																:oauth_token_secret => ENV['ACCESS_TOKEN_SECRET'])
 		@text = client.info
   end
 
