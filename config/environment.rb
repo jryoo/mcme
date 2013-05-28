@@ -13,5 +13,3 @@ Tumblr.configure do |config|
   config.oauth_token = ENV['ACCESS_TOKEN']
   config.oauth_token_secret = ENV['ACCESS_TOKEN_SECRET']
 end
-
-client = Tumblr::Client.new

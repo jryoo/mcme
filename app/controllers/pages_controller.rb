@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   end
 
 	def random
+		client = Tumblr::Client.new
 		@text = client.info
   end
 
