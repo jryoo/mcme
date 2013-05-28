@@ -7,6 +7,8 @@ gem 'rails', '3.2.12'
 
 gem 'tumblr_client'
 
+gem 'oauth'
+
 group :production do
   gem 'pg'
 end

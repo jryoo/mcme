@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   end
 
 	def random
-		@text = "hellos"
+		@text = client.info
   end
 
 end
