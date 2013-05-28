@@ -8,8 +8,8 @@ class PagesController < ApplicationController
 																:consumer_secret => ENV['CONSUMER_SECRET'], 
 																:oauth_token => ENV['ACCESS_TOKEN'], 
 																:oauth_token_secret => ENV['ACCESS_TOKEN_SECRET'])
-		index = Random.new.rand(20)
 		posts = client.posts("bigbluemcme.tumblr.com/", :type => "photo")
+		index = Random.new.rand(posts["posts"].length)
 		@url = posts["posts"][index]["photos"][0]["original_size"]["url"]
 
   end
