@@ -2,21 +2,15 @@ Mcme::Application.configure do
   CONSUMER_KEY = ENV['CONSUMER_KEY']
   CONSUMER_SECRET = ENV['CONSUMER_SECRET']
 
-  @consumer = OAuth::Consumer.new(CONSUMER_KEY, CONSUMER_SECRET, :site => 'https://www.tumblr.com/oauth/access_token')
-  @request_token=@consumer.get_request_token
-  session[:request_token]=@request_token
-  redirect_to @request_token.authorize_url
-  @access_token=@request_token.get_access_token
-
   Tumblr.configure do |config|
     config.consumer_key = CONSUMER_KEY
     config.consumer_secret = CONSUMER_SECRET
-    config.oauth_token = @access_token.access_token
-    config.oauth_token_secret = @access_token.access_token_secret
+    config.oauth_token = ENV['ACCESS_TOKEN']
+    config.oauth_token_secret = ENV['ACCESS_TOKEN_SECRET']
   end
 
   client = Tumblr::Client.new
-  
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
